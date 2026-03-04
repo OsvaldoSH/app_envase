@@ -9,3 +9,16 @@ export async function queryTest(){
         conn.release()        
     }
 }
+
+export async function insertEntrega({ ruta, quien_entrega, dinero, cartones, tipo, comentario }) {
+    try {
+        const conn = await conn.query(
+            `INSERT INTO entregas (ruta, quien_entrega, dinero, cartones, tipo,
+            VALUES (?,?,?,?,?,?))`,
+            [ruta, quien_entrega, dinero, cartones, tipo, comentario]
+        )
+        return result.insertId
+    } finally {
+        conn.release()
+    }
+}

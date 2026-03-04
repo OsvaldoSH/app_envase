@@ -1,9 +1,42 @@
-import { queryTest } from '../models/entregas.model.js'
+import { insertEntrega, queryTest } from '../models/entregas.model.js'
 
 export async function testDb(req, res) {
     try {
         const rows = await queryTest()
         res.json({ conexion: 'ok', resultado: rows })
+    } catch (err) {
+        res.status(500).json({ error: err.message })
+    }
+}
+
+export async function crearEntrega(req, res) {
+    try {
+        const { ruta, quien_entrega, dinero, cartones,tipo, comentario } = req.body
+
+        if (!ruta || !quien_entrega || dinero === undefined || cartones === undefined || !tipo) {
+            return res.status(400).json({ error: 'Faltan campos obligatorios' })
+        }
+
+        const dineroNum = Number(dinero)
+        const cartonesNum = Number(cartones)
+
+        if (!Number.isFinite(dineroNum) || dineroNum < 0) {
+            return res.status(400).json({ error: 'Dinero invalido' })
+        }
+
+        if (!Number.isInteger(cartonesNum) || cartonesNum <= 0) {
+            return res.status(400).json({ error: 'Cartones invalido' })
+        }
+
+        const id = await insertEntrega({
+            ruta: String(ruta),
+            quien_entrega: String(quien_entrega),
+            dinero: dineroNum,
+            cartones: cartonesNum,
+            tipo: String(tipo),
+            comentario: comentario ? String(comentario) : null,
+        })
+        res.json({ ok: true, id })
     } catch (err) {
         res.status(500).json({ error: err.message })
     }
