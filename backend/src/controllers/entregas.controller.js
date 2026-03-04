@@ -1,4 +1,4 @@
-import { insertEntrega, queryTest } from '../models/entregas.model.js'
+import { insertEntrega, getEntregas, queryTest } from '../models/entregas.model.js'
 
 export async function testDb(req, res) {
     try {
@@ -39,5 +39,21 @@ export async function crearEntrega(req, res) {
         res.json({ ok: true, id })
     } catch (err) {
         res.status(500).json({ error: err.message })
+    }
+}
+
+export async function listarEntregas(req, res) {
+    try {
+        const rows = await getEntregas()
+
+        const data = rows.map(r => ({
+            ...r,
+            dinero: Number(r.dinero),
+            cantidad_por_carton: r.cartones ? Number(r.dinero) / r.cartones : 0
+        }))
+        res.json(data)
+
+    } catch (err) {
+        res.status(500).json({ error: err.message})
     }
 }
