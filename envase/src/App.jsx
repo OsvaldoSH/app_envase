@@ -1,28 +1,33 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import EntregaForm from "./components/EntregaForm";
+import EntregasTable from "./components/EntregasTable";
+import { getEntregas } from "./services/services.js";
 
 function App() {
   const [entregas, setEntregas] = useState([])
+  const [loading, setLoading] = useState(false)
+
+  async function loadEntregas() {
+    setLoading(true)
+    const data = await getEntregas()
+    setEntregas(data)
+    setLoading(false)
+  }
 
   useEffect(() => {
-    fetch("/api/entregas")
-    .then(res => res.json())
-    .then(data => setEntregas(data))
-  },[])
+    loadEntregas()
+  }, [])
 
   return (
-  <div>
-    <h1>Entregas</h1>
+    <div className="app">
+      <EntregaForm onCreated={loadEntregas}/>
 
-    {entregas.map(e => (
-      <div key={e.id}>
-        Ruta {e.ruta} - ${e.dinero}
-      </div>
-    ))}
-
-  </div>
+      {loading ? (
+        <p>Cargando...</p>
+      ) : (
+        <EntregasTable entregas={entregas}/>
+      )}
+    </div>
   )
 }
 

@@ -1,0 +1,109 @@
+.entrega-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.entrega-form {
+  width: 100%;
+  max-width: 700px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.entrega-form h2 {
+  margin: 0 0 5px 0;
+}
+
+.entrega-subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* secciones */
+
+.entrega-section {
+  margin-bottom: 25px;
+}
+
+.entrega-section-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* grid */
+
+.entrega-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.entrega-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.entrega-field label {
+  font-size: 13px;
+  color: #374151;
+}
+
+.entrega-field input,
+.entrega-field select {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.entrega-field input:focus,
+.entrega-field select:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+/* botón */
+
+.entrega-actions {
+  margin-top: 20px;
+}
+
+.entrega-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.entrega-button:hover {
+  background: #059669;
+}
+
+.entrega-error {
+  color: crimson;
+  margin-left: 10px;
+}
+
+.entrega-ok {
+  color: green;
+  margin-left: 10px;
+}
+
+/* responsive */
+
+@media (max-width: 640px) {
+  .entrega-grid {
+    grid-template-columns: 1fr;
+  }
+}

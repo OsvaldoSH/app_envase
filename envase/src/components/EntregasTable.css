@@ -1,0 +1,89 @@
+.tabla-card {
+  width: 100%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* para que el header redondeado se vea bien */
+  border: 1px solid #e5e7eb;
+  margin: 24px auto 0 auto;
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+}
+
+.tabla thead th {
+  background: #5b6ee1; /* azul-morado como el ejemplo */
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+}
+
+.tabla tbody td {
+  padding: 12px 14px;
+  border-top: 1px solid #eef2ff;
+  color: #111827;
+  background: #fff;
+}
+
+/* filas con alternado suave */
+.tabla tbody tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+/* hover */
+.tabla tbody tr:hover td {
+  background: #eef2ff;
+}
+
+/* números alineados */
+.td-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* comentario más suave */
+.td-muted {
+  color: #6b7280;
+}
+
+/* “chips” para tipo */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
+}
+
+/* variaciones por tipo (opcional) */
+.chip--venta {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.chip--devolucion {
+  background: #fff7ed;
+  border-color: #fed7aa;
+  color: #9a3412;
+}
+
+/* responsivo: si se aprieta, permite scroll horizontal */
+@media (max-width: 800px) {
+  .tabla-card {
+    overflow-x: auto;
+  }
+  .tabla {
+    min-width: 760px;
+  }
+}
