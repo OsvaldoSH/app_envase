@@ -1,4 +1,5 @@
 import { insertEntrega, getEntregas, queryTest } from '../models/entregas.model.js'
+import { updateEstadoEntrega } from '../models/entregas.model.js'
 
 export async function testDb(req, res) {
     try {
@@ -57,3 +58,18 @@ export async function listarEntregas(req, res) {
         res.status(500).json({ error: err.message})
     }
 }
+
+export async function cambiarEstado(req, res) {
+    try {
+        const { id } = req.params
+        const {estado} = req.body
+
+        await updateEstadoEntrega(id, estado)
+
+        res.json({ ok: true })
+
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+    

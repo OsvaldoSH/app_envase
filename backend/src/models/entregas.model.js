@@ -14,9 +14,9 @@ export async function insertEntrega({ ruta, quien_entrega, dinero, cartones, tip
     const conn = await pool.getConnection()
     try {
         const result = await conn.query(
-            `INSERT INTO entregas (ruta, quien_entrega, dinero, cartones, tipo, comentario)
-            VALUES (?,?,?,?,?,?)`,
-            [ruta, quien_entrega, dinero, cartones, tipo, comentario]
+            `INSERT INTO entregas (ruta, quien_entrega, dinero, cartones, tipo, comentario, estado)
+            VALUES (?,?,?,?,?,?,?)`,
+            [ruta, quien_entrega, dinero, cartones, tipo, comentario, 'ACTIVO']
         )
         return Number(result.insertId)
     } finally {
@@ -37,6 +37,7 @@ export async function getEntregas() {
                 cartones,
                 tipo,
                 comentario,
+                estado,
                 creado
             FROM entregas
             ORDER BY creado DESC`
@@ -46,3 +47,17 @@ export async function getEntregas() {
         conn.release()
     }
 }
+
+export async function updateEstadoEntrega(id, estado) {
+    const conn = await pool.getConnection()
+
+    try {
+        await conn. query(
+            `UPDATE entregas SET estado=? WHERE id=?`,
+            [estado, id]
+        )
+    }finally {
+        conn.release()
+    }
+} 
+    

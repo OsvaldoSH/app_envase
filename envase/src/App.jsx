@@ -25,7 +25,7 @@ function App() {
       {loading ? (
         <p>Cargando...</p>
       ) : (
-        <EntregasTable entregas={entregas}/>
+        <EntregasTable entregas={entregas} onUpdated={loadEntregas}/>
       )}
     </div>
   )

@@ -72,7 +72,7 @@
   color: #065f46;
 }
 
-.chip--devolucion {
+.chip--importe {
   background: #fff7ed;
   border-color: #fed7aa;
   color: #9a3412;
@@ -86,4 +86,56 @@
   .tabla {
     min-width: 760px;
   }
+}
+
+.estado {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.estado-activo {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.estado-devuelto {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.estado-cancelado {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.btn-estado {
+  background: #04732d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.btn-estado:hover {
+  background: #16a34a;
+}
+
+.btn-ticket {
+  background: #111827;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.btn-ticket:hover {
+  filter: brightness(1.1);
 }
