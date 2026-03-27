@@ -1,5 +1,6 @@
 import "./EntregasTable.css";
 import { printTicket } from "../utils/printTikets";
+import { Printer } from "lucide-react";
 
 function fmtFecha(value) {
   const d = new Date(value);
@@ -91,12 +92,12 @@ async function cambiarEstado(id, estado) {
               </td>
               <td>
                 <button
+                className="btn-imprimir"
                   type="button"
-                  className="btn-ticket"
                   onClick={() => printTicket(e, { paperMm: 58 })}>
-                  Impr
+                  <Printer size={24} />
                 </button>
-            </td>
+              </td>
             </tr>
           ))}
         </tbody>

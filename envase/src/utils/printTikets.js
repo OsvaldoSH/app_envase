@@ -45,29 +45,39 @@ export function printTicket(entrega, { paperMm = 58 } = {}) {
 </head>
 <body>
   <div class="ticket">
+    <div class="center big">Distribuidora de Cerveza Zacapoaxtla</div>
+    <p></p>
     <div class="center big">ENVASE</div>
-    <div class="center muted">Ticket de entrega</div>
+    <div class="center muted">Ticket de entrega de efectivo</div>
 
     <div class="hr"></div>
 
-    <div class="row"><span>Fecha</span><span>${safe(fecha)}</span></div>
-    <div class="row"><span>Ruta</span><span>${safe(entrega?.ruta)}</span></div>
-    <div class="row"><span>Entrega</span><span>${safe(entrega?.quien_entrega)}</span></div>
+    <div class="row"><span><b>Fecha</b>:</span><span>${safe(fecha)}</span></div>
+    <p></p>
+    <div class="row"><span><b>Ruta:</b></span><span>${safe(entrega?.ruta)}</span></div>
+    <p></p>
+    <div class="row"><span><b>Entrega:</b></span><span>${safe(entrega?.quien_entrega)}</span></div>
 
     <div class="hr"></div>
 
-    <div class="row"><span>Tipo</span><span>${safe(entrega?.tipo)}</span></div>
-    <div class="row"><span>Cartones</span><span>${safe(entrega?.cartones)}</span></div>
-    <div class="row"><span>Dinero</span><span>${safe(dineroTxt)}</span></div>
-    <div class="row"><span>Estado</span><span>${safe(entrega?.estado)}</span></div>
-
+    <div class="row"><span><b>Tipo:</b></span><span>${safe(entrega?.tipo)}</span></div>
+    <p></p>
+    <div class="row"><span><b>Cartones:</b></span><span>${safe(entrega?.cartones)}</span></div>
+    <p></p>
+    <div class="row"><span><b>Efectivo:</b></span><span>${safe(dineroTxt)}</span></div>
+    <p></p>
+    <div class="row"><span><b>Estado:</b></span><span>${safe(entrega?.estado)}</span></div>
+    <p></p>
     ${entrega?.comentario ? `<div class="hr"></div><div><b>Comentario:</b> ${safe(entrega.comentario)}</div>` : ""}
 
     <div class="hr"></div>
+    <p></p>
     <div class="center">Firma</div>
     <p></p>
-
     <div class="center">_______________________</div>
+    <p></p>
+    <div class="hr"></div>
+
   </div>
 
   <script>

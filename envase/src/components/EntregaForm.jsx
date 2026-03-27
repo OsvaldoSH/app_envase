@@ -139,6 +139,7 @@ export default function EntregaForm({ onCreated }) {
                 <option value="">Seleccionar</option>
                 <option value="VENTA">Venta</option>
                 <option value="IMPORTE">Importe</option>
+                <option value="FALTANTE">Faltante</option>
               </select>
             </div>
 

@@ -125,17 +125,13 @@
   background: #16a34a;
 }
 
-.btn-ticket {
-  background: #111827;
-  color: #fff;
+.btn-imprimir {
+  background: none;
   border: none;
-  padding: 6px 10px;
-  border-radius: 8px;
   cursor: pointer;
-  font-size: 12px;
-  font-weight: 600;
+  color: #444;
 }
 
-.btn-ticket:hover {
-  filter: brightness(1.1);
+.btn-imprimir:hover {
+  color: #0414f0;
 }
