@@ -1,0 +1,234 @@
+.reporte-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.reporte-card {
+  width: 100%;
+  max-width: 1100px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.reporte-card h1 {
+  margin: 0 0 5px 0;
+}
+
+.reporte-subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* secciones */
+
+.reporte-section {
+  margin-bottom: 25px;
+}
+
+.reporte-section-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* formulario */
+
+.reporte-form {
+  margin-bottom: 25px;
+}
+
+.reporte-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.reporte-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reporte-field label {
+  font-size: 13px;
+  color: #374151;
+}
+
+.reporte-field input,
+.reporte-field select {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.reporte-field input:focus,
+.reporte-field select:focus {
+  outline: none;
+  border-color: #10b981;
+}
+
+/* acciones */
+
+.reporte-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reporte-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.reporte-button:hover {
+  background: #059669;
+}
+
+.reporte-button-secondary {
+  background: #374151;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.reporte-button-secondary:hover {
+  background: #1f2937;
+}
+
+/* estados */
+
+.reporte-error {
+  color: crimson;
+  margin-top: 10px;
+}
+
+.reporte-loading {
+  color: #374151;
+  margin-top: 10px;
+}
+
+/* resumen filtros */
+
+.reporte-resumen {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.reporte-resumen p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+/* totales */
+
+.reporte-totales {
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.reporte-totales h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.reporte-totales-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.reporte-total-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.reporte-total-label {
+  display: block;
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+
+.reporte-total-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* tabla contenedor */
+
+.reporte-tabla {
+  margin-top: 20px;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .reporte-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reporte-totales-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* impresión */
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .reporte-wrapper {
+    padding: 0;
+  }
+
+  .reporte-card {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .reporte-actions,
+  .no-print {
+    display: none !important;
+  }
+
+  .reporte-form {
+    display: none;
+  }
+
+  .reporte-resumen,
+  .reporte-totales,
+  .reporte-tabla {
+    margin-bottom: 20px;
+  }
+}

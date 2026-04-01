@@ -15,3 +15,36 @@
   padding: 8px;
   text-align: left;
 }
+
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-button {
+  padding: 5px 16px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+  background: #e5e7eb;
+}
+
+/* botón activo */
+.nav-button.active {
+  background: #10b981;
+  color: white;
+  border-color: #10b981;
+}
+
+/* versión secundaria (opcional) */
+.nav-button.secondary.active {
+  background: #374151;
+  border-color: #374151;
+}

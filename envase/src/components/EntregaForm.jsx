@@ -98,6 +98,7 @@ export default function EntregaForm({ onCreated }) {
                 <option value="Ruta 03">Ruta 03</option>
                 <option value="Ruta 04">Ruta 04</option>
                 <option value="Ruta 05">Ruta 05</option>
+                <option value="Mostrador">Mostrador</option>
               </select>
             </div>
 

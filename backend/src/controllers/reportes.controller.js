@@ -1,10 +1,19 @@
 import pool from "../connection_db.js"
 
 export const getReporte = async (req, res) => {
-    const { fechaInicio, fechaFin, tipo, estado} = req.query;
+    let { fechaInicio, fechaFin, tipo, estado, ruta} = req.query;
+    
 
-    if (!fechaInicio || !fechaFin || !tipo) {
-        return res.status(400).json({ error: "Faltan parametros"});
+    if (!fechaInicio || !fechaFin) {
+        const hoy = new Date();
+
+        const primerDia = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+        const ultimoDia = new Date(hoy.getFullYear(), hoy.getMonth() + 1, 0);
+
+        const format = (d) => d.toISOString().split("T")[0];
+
+        fechaInicio = format(primerDia);
+        fechaFin = format(ultimoDia);
     }
 
     if (!["ventas", "importes", "ambos"].includes(tipo)) {
@@ -33,6 +42,11 @@ export const getReporte = async (req, res) => {
         if (estado && estado !=="todos") {
             query += ` and estado = ?`;
             params.push(estado);
+        }
+
+        if (ruta && ruta !== "todas") {
+            query += `and ruta = ?`;
+            params.push(ruta); 
         }
 
         query += `order by creado ASC`;
