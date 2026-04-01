@@ -21,7 +21,8 @@ function fmtDinero(value) {
 export default function EntregasTable({ entregas, onUpdated }) {
 
 async function cambiarEstado(id, estado) {
-  const res = await fetch(`/api/entregas/${id}/estado`, {
+  const API_URL = import.meta.env.VITE_API_DB;
+  const res = await fetch(`${API_URL}/api/entregas/${id}/estado`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ estado }),

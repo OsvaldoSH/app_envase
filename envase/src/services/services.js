@@ -1,9 +1,12 @@
 export async function getEntregas() {
-    const res = await fetch("/api/entregas")
+    const API_URL = import.meta.env.VITE_API_DB;
+    const res = await fetch(`${API_URL}/api/entregas`);
 
     if (!res.ok) {
-        throw new Error("Error obteniendo registros")
+        const errorText = await res.text();
+        console.error(errorText);
+        throw new Error("Error obteniendo registros");
     }
 
-    return res.json()
+    return res.json();
 }
