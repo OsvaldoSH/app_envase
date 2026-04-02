@@ -50,8 +50,8 @@ export default function EntregasTable({ entregas, onUpdated, modo = "normal" }) 
             <th>Quién entrega</th>
             <th>Tipo</th>
             <th>Cartones</th>
-            <th>Dinero</th>
-            <th>Comentario</th>
+            <th>Efectivo</th>
+            <th>$ Por Carton</th>
             <th>Estado</th>
             {modo !== "reporte" && <th>Tiket</th>}
           </tr>
@@ -70,7 +70,7 @@ export default function EntregasTable({ entregas, onUpdated, modo = "normal" }) 
               </td>
               <td className="td-num">{e.cartones}</td>
               <td className="td-num">{fmtDinero(e.dinero)}</td>
-              <td className="td-muted">{e.comentario ?? ""}</td>
+              <td className="td-muted">{fmtDinero(e.cantidad_por_carton)}</td>
               <td>
                 {modo === "reporte" ? (
                   <span>{e.estado}</span>

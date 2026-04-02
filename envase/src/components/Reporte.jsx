@@ -3,6 +3,12 @@ import { getReporte } from "../services/reportes.js";
 import EntregasTable from "./EntregasTable.jsx";
 import "./Reporte.css"
 
+function fmtDinero(value) {
+  const n = Number(value);
+  if (!Number.isFinite(n)) return value ?? "";
+  return n.toLocaleString("es-MX", { style: "currency", currency: "MXN" });
+}
+
 export default function Reporte() {
     const [form, setForm] = useState({
         fechaInicio: "",
@@ -174,8 +180,8 @@ export default function Reporte() {
 
                 <div className="reporte-totales-grid">
                 <div className="reporte-total-item">
-                    <span className="reporte-total-label">Total dinero</span>
-                    <span className="reporte-total-value">{totales.dinero}</span>
+                    <span className="reporte-total-label">Efectivo Total</span>
+                    <span className="reporte-total-value">{fmtDinero(totales.dinero)}</span>
                 </div>
 
                 <div className="reporte-total-item">
